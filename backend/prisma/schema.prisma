@@ -1,0 +1,78 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "mongodb"
+  url      = env("DATABASE_URL")
+}
+
+enum userRole {
+  ASSIGNEE
+  ASSIGNER
+}
+
+enum taskStatus {
+  IN_PROGRESS
+  IN_REVIEW
+  COMPLETED
+  PENDING
+}
+
+model User {
+  id          String   @id @default(auto()) @map("_id") @db.ObjectId
+  FirstName   String
+  LastName    String
+  Email       String   @unique
+  Password    String
+  About       String?
+  City        String?
+  State       String?
+  Bio         String?
+  Memberships Member[]
+}
+
+model Organization {
+  id          String   @id @default(auto()) @map("_id") @db.ObjectId
+  Name        String
+  CreatedById String   @db.ObjectId
+  Tasks       Task[]
+  Member      Member[] @relation(name: "MembersInOrganisation")
+}
+
+model Member {
+  id             String       @id @default(auto()) @map("_id") @db.ObjectId
+  UserId         String       @db.ObjectId
+  User           User         @relation(fields: [UserId], references: [id])
+  OrganizationId String       @db.ObjectId
+  Organization   Organization @relation(name: "MembersInOrganisation", fields: [OrganizationId], references: [id])
+  AssignedTasks  Task[]       @relation("Assigner")
+  TodoTasks      Task[]       @relation("Assignee")
+  UserRole       userRole
+  Points         Int          @default(0)
+  DateJoined     DateTime     @default(now())
+}
+
+model Task {
+  id                   String       @id @default(auto()) @map("_id") @db.ObjectId
+  Title                String
+  Description          String
+  Status               taskStatus   @default(PENDING)
+  assignerId           String       @db.ObjectId
+  Assigner             Member       @relation(name: "Assigner", fields: [assignerId], references: [id])
+  assigneeId           String?      @db.ObjectId
+  Assignee             Member?      @relation(name: "Assignee", fields: [assigneeId], references: [id])
+  OrganizationId       String       @db.ObjectId
+  Organization         Organization @relation(fields: [OrganizationId], references: [id])
+  StartDate            DateTime?    @default(now())
+  EndDate              DateTime
+  progress             Int          @default(25)
+  Points               Int?         @default(10)
+  dependentTasks       Task[]       @relation("DependentTasks", fields: [dependentTasksIds], references: [id])
+  dependentTasksIds    String[]     @default([]) @db.ObjectId
+  dependencyOfTasks    Task[]       @relation("DependentTasks", fields: [dependencyOfTasksIds], references: [id])
+  dependencyOfTasksIds String[]     @default([]) @db.ObjectId
+}
