@@ -4,9 +4,9 @@ import { useRouter } from "next/navigation";
 import { useFormik } from "formik";
 import * as Yup from "yup";
 import { Box, Button, Link, Stack, TextField, Typography } from "@mui/material";
-import { useAuth } from "src/hooks/use-auth";
-import { Layout as AuthLayout } from "src/layouts/auth/layout";
-
+import { useAuth } from "../../hooks/use-auth";
+import { Layout as AuthLayout } from "../../layouts/auth/layout";
+//import {Myapp}  from "../_app";
 const Page = () => {
 	const router = useRouter();
 	const auth = useAuth();

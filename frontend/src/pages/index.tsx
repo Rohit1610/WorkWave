@@ -26,7 +26,7 @@ import TableRow from "@mui/material/TableRow";
 import Paper from "@mui/material/Paper";
 import CheckCircleOutlineIcon from "@mui/icons-material/CheckCircleOutline";
 import axios from "axios";
-import { Layout as DashboardLayout } from "src/layouts/dashboard/layout";
+import { Layout as DashboardLayout } from "../layouts/dashboard/layout";
 import NameSection from "@/components/NameSection";
 
 const Dashboard = () => {

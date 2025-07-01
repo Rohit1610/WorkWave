@@ -2,7 +2,7 @@ import Head from "next/head";
 import NextLink from "next/link";
 import ArrowLeftIcon from "@heroicons/react/24/solid/ArrowLeftIcon";
 import { Box, Button, Container, SvgIcon, Typography } from "@mui/material";
-import { Layout as DashboardLayout } from "src/layouts/dashboard/layout";
+import { Layout as DashboardLayout } from "../layouts/dashboard/layout";
 import '@fontsource/poppins/400.css';
 import '@fontsource/poppins/600.css';
 import '@fontsource/poppins/500.css';

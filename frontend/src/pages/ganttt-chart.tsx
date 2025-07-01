@@ -1,6 +1,6 @@
 import React from "react";
 import { Chart } from "react-google-charts";
-import { Layout as DashboardLayout } from "src/layouts/dashboard/layout";
+import { Layout as DashboardLayout } from "../layouts/dashboard/layout";
 
 const columns = [
 	{ type: "string", label: "Task ID" },
