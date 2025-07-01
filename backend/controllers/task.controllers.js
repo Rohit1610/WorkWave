@@ -1,4 +1,3 @@
-import { check } from 'prisma';
 import { taskStatus } from '@prisma/client';
 import prisma from '../config/db.config.js';
 import { response_200, response_201, response_400, response_500 } from '../utils/statuscodes.utils.js';
