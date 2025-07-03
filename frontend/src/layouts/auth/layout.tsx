@@ -1,13 +1,13 @@
 import PropTypes from "prop-types";
 import NextLink from "next/link";
 import { Box, Typography, Grid } from "@mui/material";
-import { Logo } from "src/components/logo";
+import { Logo } from "../../components/logo";
 import '@fontsource/poppins/600.css';
 import '@fontsource/poppins/400.css';
 import { useRouter } from "next/router";
 
 export const Layout = (props) => {
-	
+
 	const { children } = props;
 	const router = useRouter();
 
@@ -28,9 +28,9 @@ export const Layout = (props) => {
 				justifyContent: "center",
 				alignItems: "center",
 				flexDirection: "column",
-				
+
 			}}>
-				<Typography mb={1.25} fontFamily={'Poppins, sans-serif'} color={"#F3F3F3"} bgcolor={"#3F51B5"} fontWeight={600} fontSize={40} >Welcome to <span style={{color: "#F5C200"}}>WorkWave</span></Typography>
+				<Typography mb={1.25} fontFamily={'Poppins, sans-serif'} color={"#F3F3F3"} bgcolor={"#3F51B5"} fontWeight={600} fontSize={40} >Welcome to <span style={{ color: "#F5C200" }}>WorkWave</span></Typography>
 				{isLoginPage && <Typography bgcolor={"#F5C200"} fontFamily={'Poppins, sans-serif'} color={"#3F51B5"} fontWeight={400} fontSize={20}>Seamless and Collaborarive Task Management at your Fingertips</Typography>}
 				{!isLoginPage && <Typography fontFamily={'Poppins, sans-serif'} color={"#F3F3F3"} fontWeight={400} fontSize={20}></Typography>}
 			</Grid>
@@ -46,6 +46,7 @@ export const Layout = (props) => {
 	);
 };
 
-Layout.prototypes = {
+Layout.propTypes = {
 	children: PropTypes.node,
 };
+
