@@ -5,11 +5,10 @@ import '@fontsource/poppins/600.css';
 import '@fontsource/poppins/400.css';
 import '@fontsource/poppins/500.css';
 import Image from "next/image";
-// rgba(102, 112, 133, 1)
 import HouseIcon from '@mui/icons-material/House';
 import AlternateEmailIcon from '@mui/icons-material/AlternateEmail';
 
-import { Layout as DashboardLayout } from "src/layouts/dashboard/layout";
+import { Layout as DashboardLayout } from "../layouts/dashboard/layout";
 
 const NameSection = ({ user }) => {
   const [FirstName, LastName, Email,Bio, City, State] = [user.FirstName, user.LastName, user.Email, user.Bio, user.City, user.State];
