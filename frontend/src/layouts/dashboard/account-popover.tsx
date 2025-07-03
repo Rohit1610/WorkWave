@@ -9,7 +9,7 @@ import {
 	Popover,
 	Typography,
 } from "@mui/material";
-import { useAuth } from "src/hooks/use-auth";
+import { useAuth } from "../../hooks/use-auth";
 
 export const AccountPopover = (props) => {
 	const { anchorEl, onClose, open } = props;
@@ -18,7 +18,7 @@ export const AccountPopover = (props) => {
 
 	const handleSignOut = useCallback(() => {
 		onClose?.();
-		auth.signOut();
+		//auth.signOut();
 		router.push("/auth/login");
 	}, [onClose, auth, router]);
 
@@ -41,7 +41,7 @@ export const AccountPopover = (props) => {
 			>
 				<Typography variant="overline">Account</Typography>
 				<Typography color="text.secondary" variant="body2">
-					
+
 				</Typography>
 			</Box>
 			<Divider />

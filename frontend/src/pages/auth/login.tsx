@@ -19,8 +19,8 @@ import {
 	Grid,
 	Checkbox
 } from "@mui/material";
-import { useAuth } from "src/hooks/use-auth";
-import { Layout as AuthLayout } from "src/layouts/auth/layout";
+import { useAuth } from "../../hooks/use-auth";
+import { Layout as AuthLayout } from "../../layouts/auth/layout";
 import '@fontsource/poppins/600.css';
 import '@fontsource/poppins/400.css';
 import '@fontsource/poppins/500.css';

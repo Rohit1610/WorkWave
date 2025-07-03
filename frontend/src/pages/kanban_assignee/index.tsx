@@ -5,7 +5,7 @@ registerLicense('Ngo9BigBOggjHTQxAR8/V1NBaF5cWWNCe0x3Qnxbf1x0ZFFMYl5bR3NPIiBoS35
 import { KanbanComponent, ColumnsDirective, ColumnDirective, DialogFieldsModel, CardRenderedEventArgs } from "@syncfusion/ej2-react-kanban";
 import { extend, addClass } from '@syncfusion/ej2-base';
 import * as dataSource from './datasource.json';
-import { Layout as DashboardLayout } from "/src/layouts/dashboard/layout";
+import { Layout as DashboardLayout } from "../../layouts/dashboard/layout";
 
 import { Button } from "@mui/material";
 import * as React from 'react';
